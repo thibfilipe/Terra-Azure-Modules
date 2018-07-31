@@ -4,10 +4,10 @@
 
 ### Variables
 
-# Data Lake Store Name
+# Data Lake Store Name (Lowercase/Numbers)
 variable "DataLakeName" {
   type    = "string"
-  default = "DefaultDataLakeName"
+  default = "defaultdatalakename"
 }
 
 # Data Lake Loaction

@@ -36,7 +36,7 @@ variable "AzureObjectID" {
   # AzureObjectID = "${var.AzureObjectID}" in the Main.tf (refers to Access.tf)
 }
 
-### Environement Tag
+# Environement Tag
 variable "EnvironmentTag" {
   type    = "string"
   default = "Environement Test"
@@ -65,8 +65,7 @@ resource "azurerm_key_vault" "Terra-KeyVault" {
     tenant_id = "${var.AzureTenantID}"
     object_id = "${var.AzureObjectID}"
 
-    key_permissions = ["get"]
-
+    key_permissions    = ["get"]
     secret_permissions = ["get"]
   }
 
@@ -78,7 +77,7 @@ resource "azurerm_key_vault" "Terra-KeyVault" {
   }
 }
 
-# Outputs
+### Outputs
 
 output "Name" {
   value = "${azurerm_key_vault.Terra-KeyVault.name}"
