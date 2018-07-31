@@ -2,7 +2,7 @@
 # Module Network Security Group Rule
 ##############################################################
 
-# Variables 
+### Variables 
 
 # The NSG rule requires a RG location in which the NSG for which the rule is created is located
 variable "RGName" {
@@ -63,7 +63,7 @@ variable "NSGRuleDestinationAddressPrefixes" {
   type = "list"
 }
 
-# Ressource
+### Ressource
 
 # Creation of the rule
 
@@ -81,7 +81,7 @@ resource "azurerm_network_security_rule" "Terra-NSGRule" {
   network_security_group_name  = "${var.NSGReference}"
 }
 
-# Module output
+### Module output
 
 output "Name" {
   value = "${azurerm_network_security_rule.Terra-NSGRule.name}"

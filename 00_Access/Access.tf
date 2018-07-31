@@ -25,6 +25,12 @@ variable "AzureTenantID" {
   default = ""
 }
 
+# Object ID refers to the user
+variable "AzureObjectID" {
+  type    = "string"
+  default = ""
+}
+
 # Client ID = Application ID
 # Connect-AzureRmAccount (Subscription ID & Tenant ID)
 

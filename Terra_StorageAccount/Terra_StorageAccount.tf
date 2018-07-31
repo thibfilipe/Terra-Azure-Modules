@@ -2,7 +2,7 @@
 # Module Storage Account
 ######################################################################
 
-# Variables
+### Variables
 
 # Storage Account Name
 variable "StorageAccountName" {
@@ -51,7 +51,7 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
-# Ressource
+### Ressource
 
 # Generate Random string
 resource "random_string" "StorageAccountprefix" {
@@ -76,7 +76,7 @@ resource "azurerm_storage_account" "Terra-StorageAccount" {
   }
 }
 
-# Outputs
+### Outputs
 
 output "Name" {
   value = "${azurerm_storage_account.Terra-StorageAccount.name}"

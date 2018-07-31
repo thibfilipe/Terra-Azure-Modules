@@ -2,7 +2,7 @@
 # Creation Virtual Network
 ######################################################################
 
-# Variables
+### Variables
 
 # Resource Group Name
 variable "RGName" {
@@ -39,7 +39,7 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
-# Resource
+### Resource
 
 # Create Virtual Network
 resource "azurerm_virtual_network" "Terra-VNet" {
@@ -54,7 +54,7 @@ resource "azurerm_virtual_network" "Terra-VNet" {
   }
 }
 
-# Outputs
+### Outputs
 
 output "Name" {
   value = "${azurerm_virtual_network.Terra-VNet.name}"

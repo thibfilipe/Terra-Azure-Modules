@@ -2,7 +2,7 @@
 # Module Ubuntu VM
 ######################################################################
 
-# Variables
+### Variables
 
 # VM Name
 variable "VMName" {
@@ -24,7 +24,7 @@ variable "RGName" {
 
 # Network Interface ID(s)
 variable "NICId" {
-  type    = "list"
+  type = "list"
 }
 
 # VM Size
@@ -103,7 +103,7 @@ variable "VMAdminPassword" {
 
 # Storage URI
 variable "PrimaryBlobEndpoint" {
-  type    = "string"
+  type = "string"
 }
 
 ### Tags
@@ -119,8 +119,7 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
-
-# Resource 
+### Resource 
 
 # Create Ubuntu VM
 resource "azurerm_virtual_machine" "Terra-UbuntuVM" {
@@ -135,37 +134,37 @@ resource "azurerm_virtual_machine" "Terra-UbuntuVM" {
     caching           = "${var.VMOSDiskCaching}"
     create_option     = "${var.VMOSDiskCreationOption}"
     managed_disk_type = "${var.VMOSManagedDiskType}"
-    }
+  }
 
   storage_image_reference {
     publisher = "${var.StorageImagePublisher}"
     offer     = "${var.StorageImageOffer}"
     sku       = "${var.StorageImageSKU}"
     version   = "${var.StorageImageVersion}"
-    }
+  }
 
   os_profile {
     computer_name  = "${var.VMName}"
     admin_username = "${var.VMAdminUsername}"
     admin_password = "${var.VMAdminPassword}"
-    }
+  }
 
   os_profile_linux_config {
     disable_password_authentication = false
-    }
+  }
 
   boot_diagnostics {
     enabled     = "true"
     storage_uri = "${var.PrimaryBlobEndpoint}"
-    }
+  }
 
   tags {
     environment = "${var.EnvironmentTag}"
     usage       = "${var.EnvironmentUsageTag}"
-    }  
+  }
 }
 
-# Outputs
+### Outputs
 
 output "Name" {
   value = "${azurerm_virtual_machine.Terra-UbuntuVM.name}"

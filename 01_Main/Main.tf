@@ -18,5 +18,5 @@ module "Terra_RG" {
   source = "./Terraform_Azure_Modules/Terra_RG"
 
   # Module variable
-  RGName = "RGTESTMODULE"
+  RGName = "RGTest"
 }

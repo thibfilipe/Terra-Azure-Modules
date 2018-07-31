@@ -2,7 +2,7 @@
 # Module Resource Group
 ############################################################
 
-# Variables
+### Variables
 
 # Resource Group Name
 variable "RGName" {
@@ -27,7 +27,7 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
-# Resource 
+### Resource 
 
 # Create Resource Group
 resource "azurerm_resource_group" "Terra-RG" {
@@ -35,12 +35,12 @@ resource "azurerm_resource_group" "Terra-RG" {
   location = "${var.AzureRegion}"
 
   tags {
-  environment = "${var.EnvironmentTag}"
-  usage       = "${var.EnvironmentUsageTag}"
+    environment = "${var.EnvironmentTag}"
+    usage       = "${var.EnvironmentUsageTag}"
   }
 }
 
-# Outputs
+### Outputs
 
 output "Name" {
   value = "${azurerm_resource_group.Terra-RG.name}"

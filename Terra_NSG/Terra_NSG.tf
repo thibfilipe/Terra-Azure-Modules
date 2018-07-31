@@ -2,7 +2,7 @@
 # Module NSG
 ######################################################################
 
-# Variables
+### Variables
 
 # NSG Name
 variable "NSGName" {
@@ -33,7 +33,7 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
-# Resource
+### Resource
 
 # Creation NSG
 resource "azurerm_network_security_group" "Terra-NSG" {
@@ -47,7 +47,7 @@ resource "azurerm_network_security_group" "Terra-NSG" {
   }
 }
 
-# Outputs
+### Outputs
 
 output "Name" {
   value = "${azurerm_network_security_group.Terra-NSG.name}"

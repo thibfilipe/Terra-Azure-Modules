@@ -2,7 +2,7 @@
 # Module Cosmos DB
 ######################################################################
 
-# Variables
+### Variables
 
 # Resource Group Name
 variable "RGName" {
@@ -45,7 +45,7 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
-# Resource
+### Resource
 
 # Generate Random string
 resource "random_string" "CosmosDBprefix" {
@@ -84,7 +84,7 @@ resource "azurerm_cosmosdb_account" "Terra-CosmosDB" {
   }
 }
 
-# Outputs
+### Outputs
 
 output "Name" {
   value = "${azurerm_cosmosdb_account.Terra-CosmosDB.name}"
