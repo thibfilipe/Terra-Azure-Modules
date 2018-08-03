@@ -63,6 +63,7 @@ resource "azurerm_data_lake_store" "Terra-DataLakeStore" {
   resource_group_name = "${var.RGName}"
   location            = "${var.DataLakeLocation}"
 
+
   encrytpion {
     type         = "${var.EncryptionType}"
     key_vault_id = "${var.KeyVaultID}"
