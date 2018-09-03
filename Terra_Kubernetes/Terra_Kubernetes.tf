@@ -42,6 +42,7 @@ variable "SSHkey" {
 
 
 ## Agent Pool Profile
+
 #########################
 
 # Agent Pool Name
@@ -68,7 +69,7 @@ variable "APOSType" {
   default = "Linux"
 }
 
-# Client ID
+# Agent Pool OS Disk Size
 variable "APOSDiskSize" {
   type    = "string"
   default = "30"
