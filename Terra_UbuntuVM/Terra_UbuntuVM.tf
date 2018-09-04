@@ -2,7 +2,9 @@
 # Module Ubuntu VM
 ######################################################################
 
+##################################################
 ### Variables
+##################################################
 
 # VM Name
 variable "VMName" {
@@ -32,8 +34,9 @@ variable "VMSize" {
   type    = "string"
   default = "Standard_D1_v2"
 }
-
+######################
 ### Storage OS Disk
+######################
 
 # VM OS Disk Name
 variable "VMOSDiskName" {
@@ -59,7 +62,9 @@ variable "VMOSManagedDiskType" {
   default = "Standard_LRS"
 }
 
-### Storage Image References
+######################
+# Storage Image References
+######################
 
 # Storage Image Publisher
 variable "StorageImagePublisher" {
@@ -85,7 +90,9 @@ variable "StorageImageVersion" {
   default = "latest"
 }
 
-### OS Profile
+######################
+# OS Profile
+######################
 
 # OS Admin Username
 variable "VMAdminUsername" {
@@ -99,7 +106,9 @@ variable "VMAdminPassword" {
   default = "Password123!"
 }
 
-### Boot Diagnostics
+######################
+# Boot Diagnostics
+######################
 
 # Storage URI
 variable "PrimaryBlobEndpoint" {
@@ -119,7 +128,9 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
+##################################################
 ### Resource 
+##################################################
 
 # Create Ubuntu VM
 resource "azurerm_virtual_machine" "Terra-UbuntuVM" {
@@ -164,7 +175,9 @@ resource "azurerm_virtual_machine" "Terra-UbuntuVM" {
   }
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "Name" {
   value = "${azurerm_virtual_machine.Terra-UbuntuVM.name}"

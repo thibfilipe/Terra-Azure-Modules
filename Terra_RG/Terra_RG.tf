@@ -2,7 +2,9 @@
 # Module Resource Group
 ############################################################
 
+##################################################
 ### Variables
+##################################################
 
 # Resource Group Name
 variable "RGName" {
@@ -27,7 +29,9 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
+##################################################
 ### Resource 
+##################################################
 
 # Create Resource Group
 resource "azurerm_resource_group" "Terra-RG" {
@@ -40,7 +44,9 @@ resource "azurerm_resource_group" "Terra-RG" {
   }
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "Name" {
   value = "${azurerm_resource_group.Terra-RG.name}"

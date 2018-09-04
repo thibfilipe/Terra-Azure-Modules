@@ -2,7 +2,9 @@
 # Module Container Registry (NEED a storage account to work)
 ######################################################################
 
+##################################################
 ### Variables
+##################################################
 
 # Resource Group Name
 variable "RGName" {
@@ -39,8 +41,9 @@ variable "EnvironmentTag" {
   default = "Environement Test"
 }
 
-
+##################################################
 ### Resource
+##################################################
 
 resource "azurerm_container_registry" "Terra-ContainerRegistry" {
   name                = "${var.ContainerRegName}"
@@ -55,7 +58,9 @@ resource "azurerm_container_registry" "Terra-ContainerRegistry" {
   }
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "id" {
     value = "${azurerm_container_registry.Terra-ContainerRegistry.id}"

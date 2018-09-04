@@ -2,7 +2,9 @@
 # Module Public IP
 ############################################################
 
+##################################################
 ### Variables
+##################################################
 
 # Public IP Name
 variable "PublicIPName" {
@@ -45,7 +47,9 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
+##################################################
 ### Resource
+##################################################
 
 # Creating Public IP 
 resource "azurerm_public_ip" "Terra-PublicIP" {
@@ -61,7 +65,9 @@ resource "azurerm_public_ip" "Terra-PublicIP" {
   }
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "Name" {
   value = "${azurerm_public_ip.Terra-PublicIP.name}"

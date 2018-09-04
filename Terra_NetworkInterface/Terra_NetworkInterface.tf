@@ -2,7 +2,9 @@
 # Module Network Interface (No Public IP)
 ######################################################################
 
+##################################################
 ### Variables
+##################################################
 
 # NIC Name
 variable "NICName" {
@@ -62,7 +64,9 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
+##################################################
 ### Resource 
+##################################################
 
 # Create Network Interface
 resource "azurerm_network_interface" "Terra-NetworkInterface" {
@@ -84,7 +88,9 @@ resource "azurerm_network_interface" "Terra-NetworkInterface" {
   }
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "Name" {
   value = "${azurerm_network_interface.Terra-NetworkInterface.name}"

@@ -2,7 +2,9 @@
 # Module Azure Data Lake Store
 ######################################################################
 
+##################################################
 ### Variables
+##################################################
 
 # Data Lake Store Name (Lowercase/Numbers)
 variable "DataLakeName" {
@@ -54,7 +56,9 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
+##################################################
 ### Resource
+##################################################
 
 # Create Data Lake Store
 
@@ -72,7 +76,9 @@ resource "azurerm_data_lake_store" "Terra-DataLakeStore" {
   }
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "Name" {
   value = "${azurerm_data_lake_store.Terra-DataLakeStore.name}"

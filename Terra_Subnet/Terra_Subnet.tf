@@ -2,7 +2,9 @@
 # Module Subnet
 ######################################################################
 
+##################################################
 ### Variables
+##################################################
 
 # Subnet Name
 variable "SubnetName" {
@@ -50,7 +52,9 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
+##################################################
 ### Resource
+##################################################
 
 # Create Subnet
 resource "azurerm_subnet" "Terra-Subnet" {
@@ -61,7 +65,9 @@ resource "azurerm_subnet" "Terra-Subnet" {
   network_security_group_id = "${var.NSGid}"
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "Name" {
   value = "${azurerm_subnet.Terra-Subnet.name}"

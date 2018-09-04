@@ -2,7 +2,9 @@
 # Module Azure Key for Key Vault
 ######################################################################
 
+##################################################
 ### Variables
+##################################################
 
 # Key Vault Key Name
 variable "KeyVaultKeyName" {
@@ -52,7 +54,9 @@ variable "EnvironmentUsageTag" {
   default = "Test Only"
 }
 
+##################################################
 ### Resource
+##################################################
 
 # Create Key Vault
 
@@ -84,8 +88,9 @@ resource "azurerm_key_vault_key" "Terra-KeyVaultKey" {
   ]
 }
 
+##################################################
 ### Outputs
-
+##################################################
 output "Name" {
   value = "${azurerm_key_vault_key.Terra-KeyVaultKey.name}"
 }
