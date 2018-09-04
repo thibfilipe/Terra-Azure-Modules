@@ -7,7 +7,7 @@
 # Storage Account Name
 variable "StorageAccountName" {
   type    = "string"
-  default = "DefaultStorageAccountName"
+  default = "storageaccount"
 }
 
 # Resource Group Name
@@ -55,10 +55,9 @@ variable "EnvironmentUsageTag" {
 
 # Generate Random string
 resource "random_string" "StorageAccountprefix" {
-  length  = 4
+  length  = 5
   special = false
   upper   = false
-  lower   = false
 }
 
 # Create Storage Account

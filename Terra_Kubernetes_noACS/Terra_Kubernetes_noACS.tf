@@ -1,8 +1,12 @@
 ######################################################################
-# Module Kubernetes Cluster
+# Module Kubernetes Cluster without ACS 
 ######################################################################
 
+# WARNING : The Kubernetes cluster is deployed in a different Resource Group!
+
+##################################################
 ### Variables
+##################################################
 
 # Resource Group Name
 variable "RGName" {
@@ -28,6 +32,10 @@ variable "DNSPrefix" {
   default = "terrakubeacctest"
 }
 
+#########################
+## Linux Profile
+#########################
+
 # Admin Username
 variable "AdminUsername" {
   type    = "string"
@@ -37,12 +45,11 @@ variable "AdminUsername" {
 # SSH Key
 variable "SSHkey" {
   type    = "string"
-  default = "Password123@"
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDqqu1+zvLl/YVOp69FWTREVzCRwIPZh17SL3EF/UIUIhnvmi1u7YG5ryunXcGsXxA5MiSHpeNqAqJnOdVM+kC940SsQoCD9DhOU8DpbeYKsPbDjADCROD1Tx9UsO0bqrb8iBqfyH9Ag0yqQ680EBgRXMw3WRVxQCLYzjjVNNpQs49ZCuOhHLDF2P5KlsV2ZX8gVwOScz7SY0JMEp0SQrpY4TBDGjr9ANmk/Rt77cCOFL+/mVnPIp/zBmchWfS+GvbrSt4ChBKNWvjKlCNUKLqO4XmXmhSbYTwOdipUM1LxC3Mcy4v/LE89hvjsakhLFuvQ3ER8sOjWiZUUc353U5x/ tfilipe@devoteam@FRL0449"
 }
 
-
+#########################
 ## Agent Pool Profile
-
 #########################
 
 # Agent Pool Name
@@ -74,6 +81,8 @@ variable "APOSDiskSize" {
   type    = "string"
   default = "30"
 }
+
+#########################
 #########################
 
 # Client ID
@@ -92,10 +101,11 @@ variable "EnvironmentTag" {
   default = "TDF Kubernetes Test"
 }
 
-
+##################################################
 ### Resource
+##################################################
 
-resource "azurerm_kubernetes_cluster" "Terra-Kubernetes" {
+resource "azurerm_kubernetes_cluster" "Terra-Kubernetes-noACS" {
   name                = "${var.KubernetesName}"
   location            = "${var.KubernetesLocation}"
   resource_group_name = "${var.RGName}"
@@ -127,28 +137,30 @@ resource "azurerm_kubernetes_cluster" "Terra-Kubernetes" {
   }
 }
 
+##################################################
 ### Outputs
+##################################################
 
 output "id" {
-    value = "${azurerm_kubernetes_cluster.Terra-Kubernetes.id}"
+    value = "${azurerm_kubernetes_cluster.Terra-Kubernetes-noACS.id}"
 }
 
 output "kube_config" {
-  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes.kube_config_raw}"
+  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes-noACS.kube_config_raw}"
 }
 
 output "client_key" {
-  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes.kube_config.0.client_key}"
+  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes-noACS.kube_config.0.client_key}"
 }
 
 output "client_certificate" {
-  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes.kube_config.0.client_certificate}"
+  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes-noACS.kube_config.0.client_certificate}"
 }
 
 output "cluster_ca_certificate" {
-  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes.kube_config.0.cluster_ca_certificate}"
+  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes-noACS.kube_config.0.cluster_ca_certificate}"
 }
 
 output "host" {
-  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes.kube_config.0.host}"
+  value = "${azurerm_kubernetes_cluster.Terra-Kubernetes-noACS.kube_config.0.host}"
 }
