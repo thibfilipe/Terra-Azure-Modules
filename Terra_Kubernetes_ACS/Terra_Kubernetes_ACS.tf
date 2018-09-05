@@ -24,7 +24,6 @@ variable "KubernetesName" {
   default = "terrakubernetes"
 }
 
-
 variable "APDNSPrefix" {
   type    = "string"
   default = "terrakubeap"
@@ -81,7 +80,7 @@ variable "APCount" {
 # Agent Pool VM size
 variable "APVMSize" {
   type    = "string"
-  default = "Standard_D2s_v3"
+  default = "Standard_DS2"
 }
 
 #########################
@@ -114,7 +113,7 @@ resource "azurerm_container_service" "Terra-Kubernetes-ACS" {
   orchestration_platform = "Kubernetes"
 
   master_profile {
-    count      = 1
+    count      = "${var.MPCount}"
     dns_prefix = "${var.MPDNSPrefix}"
   }
 
